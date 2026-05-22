@@ -231,6 +231,8 @@ int speex_record_data_task(void)
     if (xSpeexRecordStreamBuffer == NULL)
     {
         mprintf("xSpeexRecordStreamBuffer create error...\r\n");
+        vTaskDelete(NULL);
+        return 0;
         // 处理错误情况
     }
     //  while(1)
@@ -286,6 +288,7 @@ int speex_record_data_task(void)
             }
             //  speex_mutex_give();
         }
+        else { taskYIELD(); }
         // xQueueReceive(speex_msg_recv_queue, &speex_rx_temp[speex_rx_index], portMAX_DELAY);
         // speex_rx_index++;
         // if(speex_rx_index == 160)

@@ -175,7 +175,7 @@ void audio_pre_rslt_write_data(int16_t* left,int16_t* right)
         uint32_t *data = (uint32_t *)left;
         int8_t *src_addr = (int8_t *)left;
         extern uint8_t speex_init_flag;
-        if(speex_init_flag)
+        if(xSpeexRecordStreamBuffer != NULL)
         {
            // speex_mutex_take();
           // mprintf("1-----------\r\n");
