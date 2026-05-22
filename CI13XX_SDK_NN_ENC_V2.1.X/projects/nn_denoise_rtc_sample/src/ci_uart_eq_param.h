@@ -7,7 +7,7 @@
 #define EQ_TEST_ENABLE      1
 #define EQ_DATA_MAX_LEN     128
 //#define EQ_TASK_MAX_LEN     300     //最小分配-256
-#define EQ_TASK_MAX_LEN  512  // 原值 300，危险余量不足
+#define EQ_TASK_MAX_LEN  512   // 原值 300，危险余量不足
 
 
 #define EQ_CONFIG_MAX_CH      9
