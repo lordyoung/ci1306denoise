@@ -227,7 +227,7 @@ int8_t speex_rx_temp[SPEEX_SAMPLE_POINT_NUM * 2 * 2] = {0}; // AUDIO_CAP_POINT_N
 int speex_record_data_task(void)
 {
     // speex_msg_recv_queue = xQueueCreate(10, 128);
-    xSpeexRecordStreamBuffer = xStreamBufferCreate(1024 * 20, 320);
+    xSpeexRecordStreamBuffer = xStreamBufferCreate(1024 * 20, 640);
     if (xSpeexRecordStreamBuffer == NULL)
     {
         mprintf("xSpeexRecordStreamBuffer create error...\r\n");
@@ -271,7 +271,7 @@ int speex_record_data_task(void)
                     memset(speex_dst_addr, 0, sizeof(speex_dst_addr));
                     encode_len = cias_speex_compressed_data(ci_speex_encode_hander, speex_rx_temp, speex_dst_addr, 320); // 压缩音频数据
                     audio_pre_rslt_write_data_from_uart((uint32_t)speex_dst_addr, encode_len);
-                    vTaskDelay(3); // 必须加延时，不然会丢数据
+                    vTaskDelay(1); // 必须加延时，不然会丢数据
                     // mprintf("--------------------------------------\r\n");
                     // for(int i = 0; i < encode_len; i++)
                     // {
@@ -288,7 +288,9 @@ int speex_record_data_task(void)
             }
             //  speex_mutex_give();
         }
-        else { taskYIELD(); }
+        else { 
+            taskYIELD(); 
+        }
         // xQueueReceive(speex_msg_recv_queue, &speex_rx_temp[speex_rx_index], portMAX_DELAY);
         // speex_rx_index++;
         // if(speex_rx_index == 160)

@@ -223,7 +223,7 @@ static void task_init(void *p_arg)
     #if USE_UART_SEND_PRE_RSLT_AUDIO
     ifft_data_handle_task_rtc_init();
     #endif
-    xTaskCreate(ifft_data_handle_task_rtc,"ifft_data_handle_task_rtc", 300, NULL, 4, NULL);  
+    xTaskCreate(ifft_data_handle_task_rtc,"ifft_data_handle_task_rtc", 512, NULL, 4, NULL);  
     
     #if AUDIO_PLAYER_ENABLE
     /* 播放器任务 */

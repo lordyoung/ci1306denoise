@@ -172,14 +172,15 @@ void audio_pre_rslt_write_data(int16_t* left,int16_t* right)
     }
     else if (cnt >= 30)
     {
-        uint32_t *data = (uint32_t *)left;
+        //uint32_t *data = (uint32_t *)left;
         int8_t *src_addr = (int8_t *)left;
-        extern uint8_t speex_init_flag;
+        //extern uint8_t speex_init_flag;
         if(xSpeexRecordStreamBuffer != NULL)
         {
            // speex_mutex_take();
           // mprintf("1-----------\r\n");
-            ret = xStreamBufferSend(xSpeexRecordStreamBuffer, src_addr, 256*sizeof(int16_t), pdMS_TO_TICKS(15));
+            //ret = xStreamBufferSend(xSpeexRecordStreamBuffer, src_addr, 256*sizeof(int16_t), pdMS_TO_TICKS(15));
+            ret = xStreamBufferSend(xSpeexRecordStreamBuffer, src_addr, 256*sizeof(int16_t), portMAX_DELAY);
             if(ret != 256*sizeof(int16_t))
             {   
                 mprintf("xSpeexRecordStreamBuffer send error...\r\n");
