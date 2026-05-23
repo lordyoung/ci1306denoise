@@ -219,6 +219,12 @@ int speex_play_data_task()
 
             }
         }
+        else
+        {
+            /* 无数据时必须延时，否则该任务在优先级4持续忙等，
+             * 抢占其他音频任务的CPU，导致IIS DMA underrun和周期性截断 */
+            vTaskDelay(pdMS_TO_TICKS(10));
+        }
     }
 }
 StreamBufferHandle_t xSpeexRecordStreamBuffer = NULL;
