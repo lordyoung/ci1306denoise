@@ -211,7 +211,7 @@ static void task_init(void *p_arg)
     }
     #endif
     //设置算法参数
-    ciss_set(CI_SS_SET_DENOISE_STATE, 1);
+    ciss_set(CI_SS_SET_DENOISE_STATE, 0);
     // extern void decoder_task_init_port(void);
     // decoder_task_init_port();
     extern void audio_in_manage_inner_task_rtc(void *p);

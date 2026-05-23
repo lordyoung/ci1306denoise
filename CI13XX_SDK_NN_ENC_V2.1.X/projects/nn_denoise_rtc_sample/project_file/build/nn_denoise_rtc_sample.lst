@@ -22225,7 +22225,7 @@ Disassembly of section .text:
 1ff60eea:	1ff6a537          	lui	a0,0x1ff6a
 1ff60eee:	d5c50513          	addi	a0,a0,-676 # 1ff69d5c <wb_skip_table+0xc48>
 1ff60ef2:	d2cfb0ef          	jal	ra,1ff5c41e <_printf>
-1ff60ef6:	4585                	li	a1,1
+1ff60ef6:	4581                	li	a1,0
 1ff60ef8:	4569                	li	a0,26
 1ff60efa:	d0efb0ef          	jal	ra,1ff5c408 <ciss_set>
 1ff60efe:	1ff6a5b7          	lui	a1,0x1ff6a
