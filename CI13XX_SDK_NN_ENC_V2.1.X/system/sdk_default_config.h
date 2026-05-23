@@ -688,7 +688,7 @@
 
 
 #ifndef AUDIO_IN_FROM_DMIC
-#define AUDIO_IN_FROM_DMIC                  0       //是否使用数字MIC输入音频
+#define AUDIO_IN_FROM_DMIC                  1//0       //是否使用数字MIC输入音频
 #endif
 
 /**********I2S interface config**********/

@@ -39,7 +39,7 @@
 #endif
 
 
-#define CONFIG_CI_LOG_UART                   HAL_UART1_BASE 
+#define CONFIG_CI_LOG_UART                   HAL_UART0_BASE//HAL_UART1_BASE 
 
 #define MSG_COM_USE_UART_EN 0 
 #define UART_PROTOCOL_NUMBER    HAL_UART0_BASE  // HAL_UART0_BASE ~ HAL_UART2_BASE
